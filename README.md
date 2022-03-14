@@ -207,8 +207,8 @@
 
 
 ### 流程图：
+![clip_image002](https://user-images.githubusercontent.com/68094572/158141420-0f3bb2ce-7af5-46ea-81a6-caf66399f162.gif)
 
-[摘抄.md](https://github.com/yato-sama-sword/Intelligent-Cloud-manufacturing-platform/files/8243161/default.md)
 
 ### 问题总结：
 
