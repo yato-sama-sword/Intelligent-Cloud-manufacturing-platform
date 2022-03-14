@@ -220,7 +220,8 @@
 
 ![image](https://user-images.githubusercontent.com/68094572/158136373-7a09cef1-0f3d-4793-bdab-93f6d65c6f4e.png)
 
-运行结果如下
+运行结果如下：
+
 ![image](https://user-images.githubusercontent.com/68094572/158136392-c1c2c731-6a87-473a-ad72-926d421c99e5.png)
 
 
