@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.OrderMapper">
+
+    <insert id="addOrder" parameterType="Order">
+        insert into train.`order` (orderno, productid, ordernum, deaddate, deliverdate, orderstatus, factoryid, publisherid)
+        values (#{orderno},#{productid},#{ordernum},#{deaddate},#{deliverdate},#{orderstatus},#{factoryid},#{publisherid});
+    </insert>
+
+    <delete id="deleteOrderById" parameterType="long">
+        delete from train.`order` where ID = #{ID};
+    </delete>
+
+    <update id="updateOrderInfo" parameterType="Order">
+        update train.`order`
+        set ordernum = #{ordernum}, deaddate = #{deaddate}, deliverdate = #{deliverdate}
+        where ID = #{ID};
+    </update>
+
+    <update id="updateOrder" parameterType="Order">
+        update train.`order`
+        set orderstatus = #{orderstatus}, factoryid = #{factoryid}
+        where ID = #{ID};
+    </update>
+
+    <select id="queryOrderById" resultType="Order">
+        select * from train.`order`
+        where ID = #{ID};
+    </select>
+
+    <select id="queryAllOrder" resultType="Order">
+        select * from train.`order`;
+    </select>
+</mapper>

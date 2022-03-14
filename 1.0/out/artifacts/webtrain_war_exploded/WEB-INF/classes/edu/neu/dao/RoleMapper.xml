@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.RoleMapper">
+
+    <!--根据id查询用户信息-->
+    <select id="queryRoleById" resultType="Role">
+        select * from train.role
+        where ID = #{ID};
+    </select>
+
+    <!--查询全部角色信息-->
+    <select id="queryAllRole" resultType="Role">
+        SELECT * from train.role;
+    </select>
+
+</mapper>

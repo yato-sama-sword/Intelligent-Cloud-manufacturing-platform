@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描service相关的bean -->
+    <context:component-scan base-package="edu.neu.service" />
+
+    <!--将业务类注入到IOC容器中-->
+    <bean id="UserinfoServiceImpl" class="edu.neu.service.UserinfoServiceImpl">
+        <property name="UserinfoMapper" ref="userinfoMapper"/>
+    </bean>
+    <bean id="RoleServiceImpl" class="edu.neu.service.RoleServiceImpl">
+        <property name="RoleMapper" ref="roleMapper"/>
+    </bean>
+    <bean id="DeviceTypeServiceImpl" class="edu.neu.service.DeviceTypeServiceImpl">
+        <property name="DeviceTypeMapper" ref="deviceTypeMapper"/>
+    </bean>
+    <bean id="ProductTypeServiceImpl" class="edu.neu.service.ProductTypeServiceImpl">
+        <property name="ProductTypeMapper" ref="productTypeMapper"/>
+    </bean>
+    <bean id="CapacityServiceImpl" class="edu.neu.service.CapacityServiceImpl">
+        <property name="CapacityMapper" ref="capacityMapper"/>
+    </bean>
+    <bean id="DeviceServiceImpl" class="edu.neu.service.DeviceServiceImpl">
+        <property name="DeviceMapper" ref="deviceMapper"/>
+    </bean>
+    <bean id="FactoryServiceImpl" class="edu.neu.service.FactoryServiceImpl">
+        <property name="FactoryMapper" ref="factoryMapper"/>
+    </bean>
+    <bean id="OrderServiceImpl" class="edu.neu.service.OrderServiceImpl">
+        <property name="OrderMapper" ref="orderMapper"/>
+    </bean>
+    <bean id="ProductServiceImpl" class="edu.neu.service.ProductServiceImpl">
+        <property name="ProductMapper" ref="productMapper"/>
+    </bean>
+    <bean id="BidServiceImpl" class="edu.neu.service.BidServiceImpl">
+        <property name="BidMapper" ref="bidMapper"/>
+    </bean>
+    <bean id="RentServiceImpl" class="edu.neu.service.RentServiceImpl">
+        <property name="RentMapper" ref="rentMapper"/>
+    </bean>
+    <bean id="ScheduleServiceImpl" class="edu.neu.service.ScheduleServiceImpl">
+        <property name="ScheduleMapper" ref="scheduleMapper"/>
+    </bean>
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+</beans>

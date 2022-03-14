@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.DeviceTypeMapper">
+
+    <!--添加设备类型信息-->
+    <insert id="addDeviceType" parameterType="DeviceType">
+        insert into train.device_type (typename,`describe`)
+        values (#{typename},#{describe});
+    </insert>
+
+    <!--根据id删除设备类型信息-->
+    <delete id="deleteDeviceTypeById" parameterType="long">
+        delete from train.device_type where ID = #{ID};
+    </delete>
+
+    <!--更新除设备类型ID之外的信息-->
+    <update id="updateDeviceType" parameterType="DeviceType">
+        update train.device_type
+        set typename = #{typename},`describe` = #{describe}
+        where ID = #{ID};
+    </update>
+
+    <!--根据id查询设备类型信息-->
+    <select id="queryDeviceTypeById" resultType="DeviceType">
+        select * from train.device_type
+        where ID = #{ID};
+    </select>
+
+    <!--查询所有设备类型信息-->
+    <select id="queryAllDeviceType" resultType="DeviceType">
+        select * from train.device_type;
+    </select>
+</mapper>

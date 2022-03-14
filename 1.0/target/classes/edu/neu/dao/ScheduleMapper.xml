@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.ScheduleMapper">
+
+    <insert id="addSchedule" parameterType="Schedule">
+        insert into train.schedule (orderid, deviceid, begindate, enddate)
+        values (#{orderid},#{deviceid},#{begindate},#{enddate});
+    </insert>
+
+    <delete id="deleteScheduleById" parameterType="long">
+        delete from train.schedule where ID = #{ID};
+    </delete>
+
+    <update id="updateSchedule" parameterType="Schedule">
+        update train.schedule
+        set begindate = #{begindate},enddate = #{enddate}
+        where ID = #{ID};
+    </update>
+
+    <select id="queryScheduleById" resultType="Schedule">
+        select * from train.schedule
+        where ID = #{ID};
+    </select>
+
+    <select id="queryAllSchedule" resultType="Schedule">
+        select * from train.schedule;
+    </select>
+</mapper>

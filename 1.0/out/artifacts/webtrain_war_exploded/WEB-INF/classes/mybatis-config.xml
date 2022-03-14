@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置数据源的工作交给Spring-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="edu.neu.pojo"/>
+    </typeAliases>
+
+    <!-- 配置分页插件 -->
+
+    <mappers>
+        <mapper resource="edu/neu/dao/UserinfoMapper.xml"/>
+        <mapper resource="edu/neu/dao/RoleMapper.xml"/>
+        <mapper resource="edu/neu/dao/DeviceTypeMapper.xml"/>
+        <mapper resource="edu/neu/dao/ProductTypeMapper.xml"/>
+        <mapper resource="edu/neu/dao/CapacityMapper.xml"/>
+        <mapper resource="edu/neu/dao/BidMapper.xml"/>
+        <mapper resource="edu/neu/dao/DeviceMapper.xml"/>
+        <mapper resource="edu/neu/dao/FactoryMapper.xml"/>
+        <mapper resource="edu/neu/dao/OrderMapper.xml"/>
+        <mapper resource="edu/neu/dao/ProductMapper.xml"/>
+        <mapper resource="edu/neu/dao/RentMapper.xml"/>
+        <mapper resource="edu/neu/dao/ScheduleMapper.xml"/>
+    </mappers>
+</configuration>

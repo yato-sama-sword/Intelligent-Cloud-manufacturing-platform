@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.BidMapper">
+
+    <insert id="addBid" parameterType="Bid">
+        insert into train.bid (orderid, factoryid, bidprice, bidstatus)
+        values (#{orderid},#{factoryid},#{bidprice},#{bidstatus});
+    </insert>
+
+    <delete id="deleteBidById" parameterType="long">
+        delete from train.bid where ID = #{ID};
+    </delete>
+
+    <update id="updateBid" parameterType="Bid">
+        update train.bid
+        set bidstatus = #{bidstatus}
+        where ID = #{ID};
+    </update>
+
+    <select id="queryBidById" resultType="Bid">
+        select * from train.bid
+        where ID = #{ID};
+    </select>
+
+    <select id="queryAllBid" resultType="Bid">
+        select * from train.bid;
+    </select>
+</mapper>

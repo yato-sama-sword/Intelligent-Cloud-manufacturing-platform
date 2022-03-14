@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.FactoryMapper">
+
+    <insert id="addFactory" parameterType="Factory">
+        insert into train.factory (factoryname, introduction, userid, status)
+        values (#{factoryname},#{introduction},#{userid},#{status});
+    </insert>
+
+    <delete id="deleteFactoryById" parameterType="long">
+        delete from train.factory where ID = #{ID};
+    </delete>
+
+    <update id="updateFactory" parameterType="Factory">
+        update train.factory
+        set factoryname = #{factoryname},introduction = #{introduction},status = #{status}
+        where ID = #{ID};
+    </update>
+
+    <select id="queryFactoryById" resultType="Factory">
+        select * from train.factory
+        where ID = #{ID};
+    </select>
+    <select id="queryFactoryByUserId" resultType="Factory">
+        select * from train.factory
+        where userid = #{userid};
+    </select>
+
+    <select id="queryAllFactory" resultType="Factory">
+        select * from train.factory;
+    </select>
+</mapper>

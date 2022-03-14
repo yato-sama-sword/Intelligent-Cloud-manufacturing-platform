@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.UserinfoMapper">
+
+    <!--添加用户信息-->
+    <insert id="addUserinfo" parameterType="Userinfo">
+        insert into train.userinfo (account,password,username,mobile,roleid)
+        values (#{account},#{password},#{username},#{mobile},#{roleid});
+    </insert>
+
+    <!--根据id删除用户信息-->
+    <delete id="deleteUserinfoById" parameterType="long">
+        delete from train.userinfo where ID = #{ID};
+    </delete>
+
+    <!--更新除用户身份以及ID之外的用户信息-->
+    <update id="updateUserinfo" parameterType="Userinfo">
+        update train.userinfo
+        set account = #{account},password = #{password},username = #{username},mobile = #{mobile}
+        where ID = #{ID};
+    </update>
+
+    <!--根据id查询用户信息-->
+    <select id="queryUserinfoById" resultType="Userinfo">
+        select * from train.userinfo
+        where ID = #{ID};
+    </select>
+
+    <!--根据名称模糊查询用户信息-->
+    <select id="queryUserinfoByUsername" resultType="Userinfo">
+        select * from train.userinfo
+        where username like #{username}
+    </select>
+
+    <!--登录，并获取个人信息-->
+    <select id="queryUserinfoByAccountAndPassword" resultType="Userinfo">
+        select * from train.userinfo
+        where account = #{account} and password = #{password}
+    </select>
+
+    <select id="queryAllUserinfo" resultType="Userinfo">
+        select * from train.userinfo;
+    </select>
+
+    <!--
+  需求：获取所有用户以及对应角色的信息
+  思路：
+      1. 获取所有用户的信息
+      2. 根据获取的用户信息中的角色id获取对应角色的信息
+      3. 思考问题，这样用户的结果集中应该包含角色，该如何处理呢，数据库中我们一般使用关联查询？
+          1. 做一个结果集映射：UserinfoRole
+          2. 结果集的类型为 Userinfo
+          3. 用户中角色的属性为role，对应数据库中为roleid。
+             多个 [1,...）学生关联一个老师=> 一对一，一对多
+          4. 查看官网找到：association – 一个复杂类型的关联；使用它来处理关联查询
+  -->
+<!--    <select id="queryAllUserinfo" resultMap="UserinfoRole">-->
+<!--        SELECT * from train.userinfo;-->
+<!--    </select>-->
+
+<!--    <resultMap id="UserinfoRole" type="Userinfo">-->
+<!--        &lt;!&ndash;association关联属性 property属性名 javaType属性类型 column在多的一方的表中的列名&ndash;&gt;-->
+<!--        <association property="role"  column="roleid" javaType="Userinfo" select="queryRoleById"/>-->
+<!--    </resultMap>-->
+    <!--
+   这里传递过来的id，只有一个属性的时候，下面可以写任何值
+   association中column多参数配置：
+       column="{key=value,key=value}"
+       其实就是键值对的形式，key是传给下个sql的取值名称，value是片段一中sql查询的字段名。
+   -->
+<!--    <select id="queryRoleById" resultType="Role">-->
+<!--        select *-->
+<!--        from train.role-->
+<!--        where id = #{id};-->
+<!--    </select>-->
+
+</mapper>

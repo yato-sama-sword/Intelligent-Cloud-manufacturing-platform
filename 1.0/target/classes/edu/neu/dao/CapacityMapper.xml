@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.neu.dao.CapacityMapper">
+
+    <!--添加产能信息-->
+    <insert id="addCapacity" parameterType="Capacity">
+        insert into train.capacity (deviceid,productid,velocity)
+        values (#{deviceid},#{productid},#{velocity});
+    </insert>
+
+    <!--根据id产能信息-->
+    <delete id="deleteCapacityById" parameterType="long">
+        delete from train.capacity where ID = #{ID};
+    </delete>
+
+    <!--更新产能速率-->
+    <update id="updateCapacity" parameterType="Capacity">
+        update train.capacity
+        set velocity = #{velocity}
+        where ID = #{ID};
+    </update>
+
+<!--    &lt;!&ndash;根据id查询设备类型信息&ndash;&gt;-->
+<!--    <select id="queryCapacityById" resultType="Capacity">-->
+<!--        select * from train.capacity-->
+<!--        where ID = #{ID};-->
+<!--    </select>-->
+
+    <select id="queryAllCapacity" resultType="Capacity">
+        select *
+        from train.capacity;
+    </select>
+    <select id="queryCapacityById" resultType="Capacity" parameterType="long">
+        select *
+        from train.capacity
+        where ID = #{ID};
+    </select>
+    <!-- 查询设备对应的产能信息-->
+    <select id="queryAllCapacityByDeviceId" resultType="Capacity" parameterType="long">
+        select * from train.capacity where deviceid = #{deviceid}
+    </select>
+
+
+</mapper>
