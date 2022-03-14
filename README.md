@@ -12,7 +12,8 @@
 
 ### ER图
 
-![img](摘抄.assets/clip_image002.jpg)
+![image](https://user-images.githubusercontent.com/68094572/158136192-da62f512-0733-4106-bafb-767a0d0a0662.png)
+
 
 ### 表结构
 
@@ -202,12 +203,11 @@
 5. url风格：restful
 
 ### 用例图：
+![image](https://user-images.githubusercontent.com/68094572/158136261-f44070cd-8bb2-4d9f-8261-150ce254c792.png)
 
-![img](摘抄.assets/clip_image002-16472471427641.jpg)
 
 ### 流程图：
 
-![img](摘抄.assets/clip_image002.gif)
 [摘抄.md](https://github.com/yato-sama-sword/Intelligent-Cloud-manufacturing-platform/files/8243161/default.md)
 
 ### 问题总结：
@@ -218,11 +218,11 @@
 
 测试代码如下：
 
-![img](摘抄.assets/clip_image002-16472472476632.jpg)
+![image](https://user-images.githubusercontent.com/68094572/158136373-7a09cef1-0f3d-4793-bdab-93f6d65c6f4e.png)
 
 运行结果如下
+![image](https://user-images.githubusercontent.com/68094572/158136392-c1c2c731-6a87-473a-ad72-926d421c99e5.png)
 
-![img](摘抄.assets/clip_image004.jpg)
 
 发现运行结果与预期结果完全一致，于是我推测可能是spring框架部分出现差错，在我依次检查配置文件时发现，在我的web.xml文件中，没有实现对spring-service.xml文件的配置，导致无法读取到service中的bean。在配置后，成功在页面中获取数据。
 
